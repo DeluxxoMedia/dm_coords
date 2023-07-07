@@ -1,6 +1,8 @@
 fx_version 'cerulean'
-games { 'gta5' }
+game 'gta5'
 author 'Deluxxo Media'
+version '2.0'
+print "Developed by Deluxxo Media"
 
 ui_page 'html/index.html'
 
