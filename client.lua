@@ -1,10 +1,24 @@
-RegisterCommand('coords', function(source, args, rawCommand)
+RegisterCommand('coords3', function(source, args, rawCommand)   ----- To vector2 in format x,y,z
 	local coords = GetEntityCoords(PlayerPedId())
 	SendNUIMessage({
 		coords = ""..coords.x..","..coords.y..","..coords.z..""
 	})
 end)
 
+RegisterCommand('heading', function(source, args, rawCommand)  ------ To Heading 
+	local heading = GetEntityHeading(PlayerPedId())
+	SendNUIMessage({
+		coords = ""..heading..""
+	})
+end)
+
+RegisterCommand('coords4', function(source, args, rawCommand) ------ To vector4 in format x,y,z,h
+	local coords = GetEntityCoords(PlayerPedId())
+	local heading = GetEntityHeading(PlayerPedId())
+	SendNUIMessage({
+		coords = ""..coords.x..","..coords.y..","..coords.z..","..heading..""
+	})
+end)
 
 RegisterCommand('tpc', function(source, args, rawCommand)
 	local coords = {}
@@ -18,11 +32,4 @@ RegisterCommand('tpc', function(source, args, rawCommand)
 	if coords[3] ~= nil then z = coords[3] end
 
 	SetEntityCoords(GetPlayerPed(-1), x,y,z, false)
-end)
-
-RegisterCommand('heading', function(source, args, rawCommand)
-	local heading = GetEntityHeading(PlayerPedId())
-	SendNUIMessage({
-		coords = ""..heading..""
-	})
 end)
